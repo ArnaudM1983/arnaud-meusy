@@ -11,18 +11,15 @@ export const Hero = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center"
       >
-        <h2 className="text-[15vw] md:text-[12vw] leading-[0.85] font-sans font-black tracking-tighter text-[#EDEDED] flex flex-col items-center">
-          <span>DESIGNER</span>
-          <span className="text-transparent text-outline" style={{ WebkitTextStroke: '1px #EDEDED' }}>DEVELOPER</span>
-          <span>ENGINEER.</span>
+        <h2 className="text-[15vw] md:text-[10vw] leading-[0.85] font-sans font-black tracking-tighter text-[#EDEDED] flex flex-col items-center">
+          <span>DÉVELOPPEUR</span>
+          <span className="text-transparent text-outline" style={{ WebkitTextStroke: '1px #EDEDED' }}>FULL-STACK</span>
+          <span>CONCEPTEUR.</span>
         </h2>
         
         <div className="mt-12 max-w-2xl mx-auto space-y-6">
           <p className="font-mono text-[#CCFF00] text-xs md:text-sm tracking-widest uppercase">
-            Building high-performance digital architectures with a radical aesthetic.
-          </p>
-          <p className="font-serif italic text-2xl md:text-3xl text-[#EDEDED] opacity-80">
-            Based in Lyon, France. Operating at the intersection of luxury fashion and brutalist engineering.
+            Transformer des visions complexes en architectures web modernes pour propulser votre croissance et optimiser vos performances digitales.
           </p>
         </div>
       </motion.div>

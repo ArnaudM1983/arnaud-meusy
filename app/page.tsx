@@ -19,7 +19,7 @@ export default function Home() {
       {/* Work Section */}
       <section className="py-32 px-6 md:px-12 lg:px-24">
         <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-12">
-          <h2 className="text-5xl md:text-8xl font-sans font-medium uppercase tracking-tighter">Selected<br/>Works</h2>
+          <h2 className="text-5xl md:text-8xl font-sans font-medium uppercase tracking-tighter">PROJETS<br/>SÉLECTIONNÉS</h2>
           <p className="font-serif italic text-xl md:text-2xl text-white/50 max-w-sm mt-8 md:mt-0">
             A curation of projects emphasizing technical precision and visual radicalism.
           </p>
