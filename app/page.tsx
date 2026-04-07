@@ -2,44 +2,19 @@
 
 import { motion } from 'framer-motion';
 import { Hero } from '@/components/Hero';
-import { ProjectCard } from '@/components/ProjectCard';
-// import { ExpertiseMatrix } from '@/components/ExpertiseMatrix';
+import { Work } from '@/components/Work';
+import { Expertise } from '@/components/Expertise';
 
 export default function Home() {
-  const projects = [
-    { title: "Neo Fashion House", tech: ["Next.js", "GSAP", "Three.js"], impact: "+40% Conversion Rate", image: "1581091226821-2f7b574ef88a" },
-    { title: "Quant Engine V2", tech: ["Rust", "WASM", "React"], impact: "Sub-10ms Latency", image: "1550751827-4bd374c3f58b" },
-    { title: "Ether Studio", tech: ["WebGL", "Tailwind", "Motion"], impact: "Award Winning UI", image: "1534972195531-d756b9bfa9f2" }
-  ];
-
   return (
     <main className="relative z-10">
       <Hero />
 
       {/* Work Section */}
-      <section className="py-32 px-6 md:px-12 lg:px-24">
-        <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-12">
-          <h2 className="text-5xl md:text-8xl font-sans font-medium uppercase tracking-tighter">PROJETS<br/>SÉLECTIONNÉS</h2>
-          <p className="font-serif italic text-xl md:text-2xl text-white/50 max-w-sm mt-8 md:mt-0">
-            A curation of projects emphasizing technical precision and visual radicalism.
-          </p>
-        </div>
-        
-        <div className="space-y-40">
-          {projects.map((p, i) => (
-            <ProjectCard 
-              key={i} 
-              title={p.title}
-              tech={p.tech}
-              impact={p.impact}
-              image={p.image}
-              index={i} 
-            />
-          ))}
-        </div>
-      </section>
+      <Work />
 
-      {/* <ExpertiseMatrix /> */}
+      {/* Expertise Section */}
+      <Expertise />
 
       {/* Final CTA */}
       <section className="min-h-screen flex flex-col justify-center items-center text-center px-6">

@@ -24,13 +24,13 @@ export const Navigation = () => {
     <>
       <div className="absolute top-0 left-0 w-full px-6 md:px-20 py-6 flex items-center justify-between z-10">
         <div className="flex items-center gap-3 group cursor-pointer" onClick={scrollToTop}>
-          <h1 className="text-2xl md:text-3xl font-black tracking-tighter text-white font-sans flex items-center leading-none">
+          <h1 className="text-2xl md:text-2xl font-black tracking-tighter text-white font-sans flex items-center leading-none">
             ARNAUD<span className="text-[#FF6006]">MEUSY</span>
           </h1>
           <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-[#FF6006] animate-pulse shadow-[0_0_10px_#FF6006]" />
         </div>
         <div className="hidden md:flex text-[#EDEDED] font-mono text-[10px] tracking-widest uppercase opacity-40">
-          Studio Lyon // 45°N
+          LYON // 45.76°N 4.83°E
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export const Navigation = () => {
           </div>
           
           <div className="h-full flex items-center ml-1">
-            <button className="bg-black text-white px-7 h-[92%] flex items-center justify-center rounded-full text-[12px] font-bold tracking-widest hover:bg-[#FF6006] transition-colors duration-500 font-sans whitespace-nowrap">
+            <button className="bg-black text-white px-7 h-[92%] flex items-center justify-center rounded-full text-[12px] font-bold tracking-widest hover:bg-[#FF6006] transition-colors duration-500 font-sans whitespace-nowrap cursor-pointer">
               WORK WITH ME
             </button>
           </div>

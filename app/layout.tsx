@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/SmoothScroll"; 
 
 export const metadata: Metadata = {
   title: "Arnaud Meusy | Développeur Full-Stack",
@@ -20,8 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="fr"> 
+      <body className="antialiased bg-black text-white"> 
+        <SmoothScroll />
         <NoiseOverlay />
         <Navigation />
         {children}

@@ -49,7 +49,7 @@ export const ProjectCard = ({ title, tech, impact, image, index }: ProjectCardPr
       <div className="mt-6 flex flex-col md:flex-row justify-between items-start gap-4">
         <div>
           <h3 className="text-2xl md:text-3xl font-sans font-bold text-[#EDEDED] uppercase tracking-tighter">{title}</h3>
-          <p className="font-serif italic text-lg md:text-xl text-[#EDEDED]/60 mt-1">Creative Direction & Full Stack Build</p>
+          <p className="text-lg md:text-xl text-[#EDEDED]/60 mt-1">Creative Direction & Full Stack Build</p>
         </div>
         <div className="hidden md:block h-px bg-white/20 flex-grow mx-8 mt-4" />
         <ArrowUpRight className="text-[#CCFF00] w-8 h-8 self-end md:self-auto" />
