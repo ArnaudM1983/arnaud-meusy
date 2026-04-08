@@ -34,7 +34,7 @@ const projectData = {
   }
 };
 
-// 2. Le composant de la page dynamique
+// Le composant de la page dynamique
 export default function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
   const project = projectData[resolvedParams.slug as keyof typeof projectData];
@@ -47,7 +47,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ slug: stri
     <main className="min-h-screen bg-black text-[#EDEDED] pt-40 px-6 md:px-20 pb-32 overflow-hidden">
       
       {/* Bouton retour */}
-      <Link href="/#work" className="inline-flex items-center gap-2 text-white/50 hover:text-[#CCFF00] font-mono text-sm tracking-widest uppercase transition-colors mb-20 group">
+      <Link href="/work" className="inline-flex items-center gap-2 text-white/50 hover:text-[#CCFF00] font-mono text-sm tracking-widest uppercase transition-colors mb-20 group">
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Retour aux projets
       </Link>
 

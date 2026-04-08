@@ -6,11 +6,11 @@ import { ProjectCard } from '@/components/ProjectCard';
 export const Work = () => {
     const projects = [
         { 
-            title: "Eighty-One Store", 
+            title: "Eighty One Store", 
             slug: "eighty-one-store",
             tech: ["Next.js", "Symfony", "Refine"], 
             impact: "Écosystème E-Commerce Complet", 
-            image: "ton-image-e81.jpg" 
+            image: "81.webp" 
         },
         { 
             title: "Intelligence CRM", 
