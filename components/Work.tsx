@@ -5,19 +5,27 @@ import { ProjectCard } from '@/components/ProjectCard';
 
 export const Work = () => {
     const projects = [
-        { 
-            title: "Eighty One Store", 
+        {
+            title: "Eighty One Store",
             slug: "eighty-one-store",
-            tech: ["Next.js", "Symfony", "Refine"], 
-            impact: "Écosystème E-Commerce Complet", 
-            image: "81.webp" 
+            tech: ["Next.js", "Symfony", "Refine"],
+            impact: "Écosystème e-commerce haute performance",
+            image: "81.webp"
         },
-        { 
-            title: "Intelligence CRM", 
+        {
+            title: "Drophub CRM",
             slug: "intelligence-crm",
-            tech: ["Next.js", "Supabase", "Gemini API"], 
-            impact: "Prospection Automatisée par IA", 
-            image: "ton-image-crm.jpg" 
+            tech: ["Next.js", "Supabase", "Gemini API"],
+            impact: "Assistant de copywriting IA et gestion de pipeline de prospection.",
+            image: "drophub.webp"
+        },
+        {
+            title: "Kickflip Studio",
+            slug: "kickflip-studio",
+            tech: ["Three.js", "React Three Fiber", "Tailwind"],
+            impact: "Configurateur 3D immersif avec personnalisation en temps réel",
+            video: "kickflip.mp4", 
+            image: "kickflip-fallback.webp" 
         }
     ];
 
@@ -25,7 +33,7 @@ export const Work = () => {
         <section className="py-32 px-6 md:px-12 lg:px-24">
             <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-12 overflow-hidden">
                 <motion.h2
-                    initial={{ opacity: 0, y: 100 }} 
+                    initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
@@ -50,10 +58,11 @@ export const Work = () => {
                     <ProjectCard
                         key={i}
                         title={p.title}
-                        slug={p.slug} 
+                        slug={p.slug}
                         tech={p.tech}
                         impact={p.impact}
                         image={p.image}
+                        video={p.video}
                         index={i}
                     />
                 ))}

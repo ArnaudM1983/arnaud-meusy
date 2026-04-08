@@ -72,8 +72,8 @@ export const Navigation = () => {
                                         href={item.href}
                                         className={`px-5 h-[80%] flex items-center justify-center text-[14px] font-medium tracking-tighter transition-all duration-500 rounded-full font-sans cursor-pointer ${
                                             isActive 
-                                            ? 'bg-[#F0F0ED] text-black' 
-                                            : 'text-black hover:bg-[#F0F0ED] hover:text-black'
+                                            ? 'bg-[#e2dfdf] text-black' 
+                                            : 'text-black hover:bg-[#e2dfdf] hover:text-black'
                                         }`}
                                     >
                                         {item.label}

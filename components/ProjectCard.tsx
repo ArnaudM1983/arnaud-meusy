@@ -10,10 +10,11 @@ interface ProjectCardProps {
   tech: string[];
   impact: string;
   image: string;
+  video?: string; 
   index: number;
 }
 
-export const ProjectCard = ({ title, slug, tech, impact, image, index }: ProjectCardProps) => {
+export const ProjectCard = ({ title, slug, tech, impact, image, video, index }: ProjectCardProps) => {
   const isStaggered = index % 2 !== 0;
 
   return (
@@ -26,20 +27,31 @@ export const ProjectCard = ({ title, slug, tech, impact, image, index }: Project
     >
       <Link href={`/work/${slug}`} className="block group">
         
-        {/* Zone Image */}
+        {/* Zone Visuelle (Image ou Vidéo) */}
         <div className="aspect-[16/10] bg-zinc-900 overflow-hidden relative rounded-4xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none" />
           
-          <img 
-            src={image} 
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
+          {video ? (
+            <video 
+              src={video} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          )}
           
           {/* Tags Techniques */}
           <div className="absolute top-6 right-6 z-20 flex flex-col items-end gap-1 pointer-events-none">
             {tech.map((t) => (
-              <span key={t} className="bg-black/80 text-[#EDEDED] font-mono text-[9px] px-2 py-1 border border-white/10 uppercase tracking-widest backdrop-blur-sm">
+              <span key={t} className="bg-black/80 text-[#EDEDED] font-mono text-[9px] px-2 py-1 border border-white/10 uppercase tracking-widest backdrop-blur-sm rounded-xl">
                 {t}
               </span>
             ))}
@@ -49,20 +61,16 @@ export const ProjectCard = ({ title, slug, tech, impact, image, index }: Project
         {/* Footer de la carte */}
         <div className="mt-6 flex flex-col md:flex-row justify-between items-start gap-4">
           <div className="transition-opacity duration-500 group-hover:opacity-50">
-            {/* Titre : Blanc pur au départ, s'estompe au hover */}
             <h3 className="text-2xl md:text-3xl font-sans font-bold text-white uppercase tracking-tighter transition-colors duration-300">
               {title}
             </h3>
-            {/* Sous-titre : Blanc cassé s'estompant aussi */}
             <p className="text-lg md:text-xl text-[#EDEDED]/80 mt-1 transition-colors duration-300">
-              Full-Stack Development
+              {impact}
             </p>
           </div>
           
-          {/* Ligne : S'estompe également pour laisser place à l'image */}
           <div className="hidden md:block h-px bg-white/40 flex-grow mx-8 mt-4 group-hover:opacity-20 transition-all duration-500" />
           
-          {/* La flèche reste l'élément "actif" et brillant */}
           <ArrowUpRight className="text-[#CCFF00] w-8 h-8 self-end md:self-auto group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
         </div>
       </Link>
