@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ProjectCard } from '@/components/ProjectCard';
+import { Button } from '@/components/Button'; 
 
 export const Work = () => {
     const projects = [
@@ -22,7 +23,7 @@ export const Work = () => {
         {
             title: "Kickflip Studio",
             slug: "kickflip-studio",
-            tech: ["Three.js", "React Three Fiber", "Tailwind"],
+            tech: ["Next.js", "Three.js", "GSAP", "Tailwind"],
             impact: "Configurateur 3D immersif avec personnalisation en temps réel",
             video: "kickflip.mp4", 
             image: "kickflip-fallback.webp" 
@@ -31,6 +32,7 @@ export const Work = () => {
 
     return (
         <section className="py-32 px-6 md:px-12 lg:px-24">
+            {/* Header Section */}
             <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-12 overflow-hidden">
                 <motion.h2
                     initial={{ opacity: 0, y: 100 }}
@@ -53,6 +55,7 @@ export const Work = () => {
                 </motion.p>
             </div>
 
+            {/* Project List */}
             <div className="space-y-40">
                 {projects.map((p, i) => (
                     <ProjectCard
@@ -67,6 +70,20 @@ export const Work = () => {
                     />
                 ))}
             </div>
+
+            {/* CTA: Voir tous les projets */}
+            <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="mt-40 flex justify-center"
+            >
+                <Button 
+                    label="Voir Plus" 
+                    href="/work" 
+                />
+            </motion.div>
         </section>
     );
 };

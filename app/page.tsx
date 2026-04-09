@@ -1,13 +1,17 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation'; 
 import { Hero } from '@/components/Hero';
 import { Work } from '@/components/Work';
 import { Expertise } from '@/components/Expertise';
 
 export default function Home() {
+  const pathname = usePathname(); 
+
   return (
-    <main className="relative z-10">
+    
+    <main key={pathname} className="relative z-10">
       <Hero />
 
       {/* Work Section */}
@@ -21,6 +25,7 @@ export default function Home() {
         <motion.h2 
            initial={{ scale: 0.9, opacity: 0 }}
            whileInView={{ scale: 1, opacity: 1 }}
+           viewport={{ once: true }}
            className="text-[10vw] md:text-[8vw] font-sans font-black tracking-tighter uppercase leading-none"
         >
           DISPONIBLE POUR<br/>VOTRE <span className="text-[#FF6006]">PROCHAIN DÉFI.</span>
