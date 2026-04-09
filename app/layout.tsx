@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll"; 
+import ScrollToTopOnNavigation from "@/components/ScrollToTopOnNavigation";
 
 export const metadata: Metadata = {
   title: "Arnaud Meusy | Développeur Full-Stack",
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="fr"> 
       <body className="antialiased bg-black text-white"> 
+        <ScrollToTopOnNavigation />
         <SmoothScroll />
         <NoiseOverlay />
         <Navigation />
