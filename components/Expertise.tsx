@@ -10,14 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const techStack = [
     { name: "Next.js", color: "#FF6006", icon: <SiNextdotjs /> },
-    { name: "React", color: "#000000", icon: <FaReact /> },
-    { name: "TypeScript", color: "#FF6006", icon: <SiTypescript /> },
-    { name: "TailwindCSS", color: "#000000", icon: <SiTailwindcss /> },
-    { name: "Symfony", color: "#FF6006", icon: <SiSymfony /> },
-    { name: "Vue.js", color: "#000000", icon: <FaVuejs /> },
-    { name: "WordPress", color: "#FF6006", icon: <SiWordpress /> },
-    { name: "PHP", color: "#000000", icon: <SiPhp /> },
-    { name: "Figma", color: "#FF6006", icon: <SiFigma /> },
+    { name: "React", color: "#61DBFB", icon: <FaReact /> },
+    { name: "TypeScript", color: "#CAFE48", icon: <SiTypescript /> },
+    { name: "TailwindCSS", color: "#38BDF8", icon: <SiTailwindcss /> },
+    { name: "Symfony", color: "#FFFFFF", icon: <SiSymfony /> },
+    { name: "Vue.js", color: "#42b883", icon: <FaVuejs /> },
+    { name: "WordPress", color: "#F16529", icon: <SiWordpress /> },
+    { name: "PHP", color: "#9A7DFF", icon: <SiPhp /> },
+    { name: "Figma", color: "#F24E1E", icon: <SiFigma /> },
 ];
 
 export const Expertise = () => {
@@ -50,18 +50,18 @@ export const Expertise = () => {
     }, []);
 
     return (
-        <section ref={component} className="bg-[#F0EDE6] py-32 px-6 md:px-20 text-black overflow-hidden">
+        <section ref={component} className="py-32 px-6 md:px-20 text-black overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-5xl md:text-8xl font-sans font-medium tracking-tighter mb-20 uppercase">
+                <h2 className="text-5xl md:text-8xl font-sans font-medium tracking-tighter mb-20 uppercase text-[#F0EDE6]">
                     Expertise
                 </h2>
 
                 {/* Animation des technologies */}
-                <div className="flex flex-col gap-8 md:gap-12 w-full mt-10">
+                <div className="flex flex-col gap-2 md:gap-4 w-full mt-10 leading-none">
                     {techStack.map(({ name, color, icon }, index) => (
                         <div
                             key={index}
-                            className="tech-row flex items-center justify-center gap-4 text-black/10"
+                            className="tech-row flex items-center justify-center gap-4 text-[#324158]/40"
                         >
                             {Array.from({ length: 15 }, (_, i) => (
                                 <span

@@ -31,15 +31,15 @@ export const Work = () => {
     ];
 
     return (
-        <section className="py-32 px-6 md:px-12 lg:px-24">
+        <section className="bg-[#F9F9F9] py-32 px-6 md:px-12 lg:px-24">
             {/* Header Section */}
-            <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-12 overflow-hidden">
+            <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-[#1A1A1A] pb-12 overflow-hidden">
                 <motion.h2
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-5xl md:text-8xl font-sans font-medium uppercase tracking-tighter"
+                    className="text-[#1A1A1A] text-5xl md:text-8xl font-sans font-medium uppercase tracking-tighter"
                 >
                     PROJETS<br />SÉLECTIONNÉS
                 </motion.h2>
@@ -49,7 +49,7 @@ export const Work = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-xl md:text-2xl text-white/70 max-w-sm mt-8 md:mt-0"
+                    className="text-[#4A4A4A] text-xl md:text-2xl max-w-sm mt-8 md:mt-0"
                 >
                     Une sélection de projets mettant l'accent sur la précision technique et l'exigence esthétique.
                 </motion.p>
@@ -81,7 +81,8 @@ export const Work = () => {
             >
                 <Button 
                     label="Voir Plus" 
-                    href="/work" 
+                    href="/work"
+                    variant="dark" 
                 />
             </motion.div>
         </section>
