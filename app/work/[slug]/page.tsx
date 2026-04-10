@@ -3,131 +3,142 @@
 import { motion } from 'framer-motion';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { use } from 'react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { use, useEffect } from 'react'; // Ajout de useEffect
 
-// Base de données des projets
+// Structure de données enrichie
 const projectData = {
   "eighty-one-store": {
     title: "Eighty-One Store",
-    category: "E-Commerce Ecosystem",
+    client: "81 Store Lyon",
+    role: "Full-Stack & UX Design",
     year: "2026",
-    stack: "Next.js, Symfony, Refine, Stripe, Mondial Relay",
-    overview: "Création d'un écosystème e-commerce complet, de l'expérience client front-end jusqu'à l'automatisation de la logistique en back-office.",
-    features: [
-      { title: "Frontend Client", desc: "Next.js. Expérience d'achat optimisée, tunnel de commande dynamique, et intégration carte interactive (Mondial Relay/Colissimo)." },
-      { title: "Dashboard Admin", desc: "Refine. Pilotage des stocks, gestion des variantes, et automatisation des remboursements Stripe/PayPal." },
-      { title: "Backend API", desc: "Symfony. Calcul dynamique des frais de port au poids, webhooks de paiement sécurisés, et génération de flux Google Shopping." }
-    ]
+    link: "https://81store.fr",
+    category: "E-Commerce",
+    overview: "Comment digitaliser une institution du graffiti lyonnais tout en conservant son ADN brut et urbain ? Nous avons conçu un écosystème e-commerce capable de gérer des milliers de références avec une fluidité absolue.",
+    challenge: "Le défi majeur était la gestion dynamique des stocks et le calcul des frais de port complexes (poids/volume) pour des produits inflammables, tout en offrant une interface ultra-rapide sur mobile.",
+    solution: "Une architecture Headless utilisant Next.js pour la rapidité et Symfony pour la robustesse du moteur de règles métier.",
+    stack: ["Next.js", "Symfony", "Stripe", "Refine"],
   },
-  "intelligence-crm": {
-    title: "Intelligence CRM",
-    category: "AI SaaS Platform",
-    year: "2026",
-    stack: "Next.js 14, Supabase, Google Gemini API",
-    overview: "Un CRM intelligent équipé d'un copywriter IA pour automatiser et ultra-personnaliser la prospection commerciale B2B.",
-    features: [
-      { title: "Google Gemini AI", desc: "Génération automatique de messages de prospection ultra-personnalisés basés sur les données du lead." },
-      { title: "Pipeline Kanban", desc: "Interface interactive complexe permettant de gérer l'état d'avancement des leads avec un système de drag & drop fluide." },
-      { title: "Sécurité & Multi-Env", desc: "Mise en place d'un environnement backend robuste avec Supabase, séparant strictement le Mode Démo et la Production." }
-    ]
-  }
+  // ... Ajoute tes autres projets ici
 };
 
-// Le composant de la page dynamique
 export default function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
   const project = projectData[resolvedParams.slug as keyof typeof projectData];
 
-  if (!project) {
-    notFound(); 
-  }
+  // --- SOLUTION SCROLL ---
+  useEffect(() => {
+    // On force le scroll en haut immédiatement au montage du composant
+    window.scrollTo(0, 0);
+    
+    // Si tu utilises un Smooth Scroll (Lenis), tu peux aussi forcer l'immédiat
+    // document.documentElement.style.scrollBehavior = 'auto';
+    // window.scrollTo(0, 0);
+    // document.documentElement.style.scrollBehavior = 'smooth';
+  }, [resolvedParams.slug]); // Se déclenche à chaque changement de projet
+
+  if (!project) notFound();
 
   return (
-    <main className="min-h-screen bg-black text-[#EDEDED] pt-40 px-6 md:px-20 pb-32 overflow-hidden">
+    <main className="bg-[#F9F9F9] text-[#1A1A1A]">
       
-      {/* Bouton retour */}
-      <Link href="/work" className="inline-flex items-center gap-2 text-white/50 hover:text-[#CCFF00] font-mono text-sm tracking-widest uppercase transition-colors mb-20 group">
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Retour aux projets
-      </Link>
+      {/* 1. HERO SECTION  */}
+      <section className="pt-40 pb-20 px-6 md:px-20">
+        <Link href="/work" className="inline-flex items-center gap-2 text-black/40 hover:text-[#FF6006] font-sans text-xs font-bold tracking-widest uppercase transition-colors mb-12 group">
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Retour aux projets
+        </Link>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-6xl md:text-[9vw] leading-[0.8] font-sans font-medium tracking-tighter uppercase mb-16"
+        >
+          {project.title.split(' ')[0]}<br/>
+          <span className="text-[#FF6006]">{project.title.split(' ').slice(1).join(' ') || ""}</span>
+        </motion.h1>
 
-      {/* Titre masssif */}
-      <motion.h1 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="text-6xl md:text-[10vw] leading-[0.85] font-sans font-black tracking-tighter uppercase mb-12"
-      >
-        {project.title}
-      </motion.h1>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-black/10 pt-10 font-sans text-[10px] font-bold tracking-widest uppercase">
+          <div><p className="opacity-40 mb-2">Client</p><p>{project.client}</p></div>
+          <div><p className="opacity-40 mb-2">Année</p><p>{project.year}</p></div>
+          <div><p className="opacity-40 mb-2">Rôle</p><p>{project.role}</p></div>
+          <div>
+            <p className="opacity-40 mb-2">Site Live</p>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[#FF6006] transition-colors">
+              Visiter <ArrowUpRight className="w-3 h-3"/>
+            </a>
+          </div>
+        </div>
+      </section>
 
-      {/* Grille d'infos projet */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-10 border-t border-b border-white/10 py-10 mb-32 font-mono text-xs md:text-sm tracking-widest uppercase"
-      >
-        <div>
-          <span className="text-white/40 block mb-2">Role</span>
-          <span>Full-Stack Dev</span>
-        </div>
-        <div>
-          <span className="text-white/40 block mb-2">Catégorie</span>
-          <span className="text-[#FF6006]">{project.category}</span>
-        </div>
-        <div>
-          <span className="text-white/40 block mb-2">Année</span>
-          <span>{project.year}</span>
-        </div>
-        <div>
-          <span className="text-white/40 block mb-2">Stack Tech</span>
-          <span>{project.stack}</span>
-        </div>
-      </motion.div>
+      {/* 2. MAIN IMAGE */}
+      <section className="px-6 md:px-20 mb-32">
+        <motion.div 
+          initial={{ clipPath: "inset(10% 0% 10% 0%)" }}
+          whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full aspect-video bg-[#EDEDED] rounded-sm overflow-hidden flex items-center justify-center"
+        >
+          <div className="w-full h-full bg-[#1A1A1A] flex items-center justify-center text-white/5 font-sans font-bold uppercase tracking-widest text-sm">
+             [ Hero Image ]
+          </div>
+        </motion.div>
+      </section>
 
-      {/* Présentation et Features */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
+      {/* 3. THE STORY */}
+      <section className="px-6 md:px-20 py-32 grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5">
-          <h2 className="text-3xl font-bold tracking-tighter uppercase mb-6">Overview</h2>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-serif italic">
-            {project.overview}
-          </p>
+           <h2 className="text-sm font-bold tracking-widest uppercase text-[#FF6006] mb-8">// Context</h2>
+           <p className="text-3xl md:text-4xl font-serif italic leading-tight text-[#4A4A4A]">
+             {project.overview}
+           </p>
         </div>
-
-        <div className="lg:col-span-6 lg:col-start-7 space-y-16">
-          <h2 className="text-3xl font-bold tracking-tighter uppercase mb-10 border-b border-white/10 pb-6">Détails Techniques</h2>
-          
-          {project.features.map((feat, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
-            >
-              <h3 className="text-[#CCFF00] font-mono text-sm tracking-widest uppercase mb-4">
-                0{idx + 1} // {feat.title}
-              </h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                {feat.desc}
-              </p>
-            </motion.div>
-          ))}
+        <div className="lg:col-span-6 lg:col-start-8 flex flex-col justify-end">
+           <div className="space-y-12">
+             <div>
+               <h3 className="text-xs font-bold uppercase tracking-widest mb-4 opacity-40">Le Challenge</h3>
+               <p className="text-lg text-[#1A1A1A]/80 leading-relaxed">{project.challenge}</p>
+             </div>
+             <div>
+               <h3 className="text-xs font-bold uppercase tracking-widest mb-4 opacity-40">La Solution</h3>
+               <p className="text-lg text-[#1A1A1A]/80 leading-relaxed">{project.solution}</p>
+             </div>
+           </div>
         </div>
-      </div>
-      
-      {/* Zone d'image (Placeholder pour l'instant) */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="w-full h-[60vh] md:h-[80vh] bg-white/5 mt-32 rounded-sm border border-white/10 flex items-center justify-center"
-      >
-        <span className="font-mono text-white/20 uppercase tracking-widest">[Image du Projet ou Vidéo UI]</span>
-      </motion.div>
+      </section>
 
+      {/* 4. SHOWCASE SECTION */}
+      <section className="bg-[#1A1A1A] text-white py-40 px-6 md:px-20">
+        <div className="max-w-4xl mx-auto text-center mb-32">
+          <h2 className="text-4xl md:text-6xl font-sans font-black uppercase tracking-tighter mb-8">
+            Une interface <span className="text-[#FF6006]">optimisée</span> pour la performance.
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {project.stack.map(s => (
+              <span key={s} className="border border-white/20 px-4 py-2 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+           <div className="aspect-[4/5] bg-white/5 rounded-sm flex items-center justify-center italic text-white/5 uppercase tracking-widest text-[10px]">[ Mockup Mobile ]</div>
+           <div className="aspect-[4/5] bg-white/5 rounded-sm flex items-center justify-center italic text-white/5 uppercase tracking-widest text-[10px] md:translate-y-20">[ Detail UI ]</div>
+        </div>
+      </section>
+
+      {/* 5. FOOTER NEXT PROJECT */}
+      <section className="py-40 px-6 md:px-20 text-center border-t border-black/5 bg-white">
+         <p className="text-xs font-bold uppercase tracking-widest opacity-40 mb-8 font-sans">Projet Suivant</p>
+         <Link href="/work/intelligence-crm" className="group">
+           <h2 className="text-5xl md:text-8xl font-sans font-black uppercase tracking-tighter group-hover:text-[#FF6006] transition-colors duration-500">
+             Drophub CRM
+           </h2>
+         </Link>
+      </section>
     </main>
   );
 }

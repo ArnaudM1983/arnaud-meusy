@@ -40,6 +40,7 @@ export const Footer = () => {
                             <Button
                                 label="Démarrer un projet"
                                 href="mailto:arnaudmeusy@hotmail.com"
+                                variant="light"
                             />
                         </div>
 
