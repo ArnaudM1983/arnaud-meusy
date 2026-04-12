@@ -10,15 +10,15 @@ export const Work = ({ limit }: { limit?: number }) => {
     const displayedProjects = limit ? PROJECTS.slice(0, limit) : PROJECTS;
 
     return (
-        <section className="bg-[#F9F9F9] py-32 px-6 md:px-12 lg:px-24">
+        <section className="bg-[#F9F9F9] py-16 md:py-32 px-6 md:px-12 lg:px-24">
             {/* Header Section */}
-            <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-[#1A1A1A] pb-12 overflow-hidden">
+            <div className="mb-16 md:mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-[#1A1A1A] pb-12 overflow-hidden">
                 <motion.h2
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-[#1A1A1A] text-5xl md:text-8xl font-sans font-medium uppercase tracking-tighter"
+                    className="text-[#1A1A1A] text-4xl md:text-8xl font-sans font-medium uppercase tracking-tighter"
                 >
                     PROJETS<br />SÉLECTIONNÉS
                 </motion.h2>

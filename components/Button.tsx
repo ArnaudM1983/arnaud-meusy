@@ -18,7 +18,6 @@ export const Button = ({
   variant = 'dark' 
 }: ButtonProps) => {
   
-  // Logique de couleurs dynamique
   const themes = {
     dark: "bg-[#1A1A1A] text-white", 
     light: "bg-[#EDEDED] text-black"  
@@ -31,9 +30,10 @@ export const Button = ({
       rel={isExternal ? "noopener noreferrer" : undefined}
       initial="initial"
       whileHover="hover"
-      className={`group relative inline-flex items-center gap-6 px-10 py-6 rounded-full overflow-hidden transition-all duration-500 ${themes[variant]} ${className}`}
+      /* Ajustement des paddings : py-4 px-8 sur mobile, py-6 px-10 sur desktop */
+      className={`group relative inline-flex items-center gap-4 md:gap-6 px-8 py-4 md:px-10 md:py-6 rounded-full overflow-hidden transition-all duration-500 ${themes[variant]} ${className}`}
     >
-      <span className="relative z-10 flex items-center gap-3 font-black uppercase tracking-widest text-sm md:text-base group-hover:text-white transition-colors duration-500">
+      <span className="relative z-10 flex items-center gap-2 md:gap-3 font-black uppercase tracking-widest text-xs md:text-base group-hover:text-white transition-colors duration-500">
         <span>{label} //</span>
         
         <motion.span 

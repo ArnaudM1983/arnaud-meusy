@@ -83,7 +83,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ slug: stri
       </section>
 
       {/* 2. DUAL IMAGES  */}
-      <section className="px-6 md:px-20 mb-16 mt-16 overflow-hidden">
+      <section className="px-6 md:px-20 md:my-16 overflow-hidden">
         {/* Conteneur motion qui gère l'apparition de toute la grille */}
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -118,7 +118,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ slug: stri
       <section className="px-6 md:px-20 py-32 grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5">
           <h2 className="text-sm font-bold tracking-widest uppercase text-[#FF6006] mb-8">// Contexte</h2>
-          <p className="text-3xl md:text-3xl leading-tight text-[#4A4A4A]">
+          <p className="text-2xl md:text-3xl leading-tight text-[#4A4A4A]">
             {project.overview}
           </p>
         </div>

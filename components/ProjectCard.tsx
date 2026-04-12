@@ -50,8 +50,13 @@ export const ProjectCard = ({ title, slug, tech, impact, image, video, index }: 
 
           {/* Tags Techniques */}
           <div className="absolute top-6 right-6 z-20 flex flex-col items-end gap-1 pointer-events-none">
-            {tech.map((t) => (
-              <span key={t} className="bg-black/80 text-[#EDEDED] font-mono text-[9px] px-2 py-1 border border-white/10 uppercase tracking-widest backdrop-blur-sm rounded-xl">
+            {tech.map((t, i) => (
+              <span
+                key={t}
+                className={`bg-black/80 text-[#EDEDED] font-mono text-[9px] px-2 py-1 border border-white/10 uppercase tracking-widest backdrop-blur-sm rounded-xl
+        ${i >= 3 ? 'hidden md:block' : 'block'} 
+      `}
+              >
                 {t}
               </span>
             ))}

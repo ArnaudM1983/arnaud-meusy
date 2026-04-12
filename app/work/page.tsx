@@ -13,7 +13,7 @@ export default function WorkPage() {
       <section className="pt-40 pb-8 px-6 md:px-12 lg:px-24">
         
         {/* Header Section */}
-        <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-black/30 pb-12 overflow-hidden">
+        <div className="mb-16 md:mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-black/30 pb-12 overflow-hidden">
           <motion.h1
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
