@@ -50,7 +50,7 @@ export default function ServicesPage() {
     <main className="bg-[#F9F9F9] text-[#1A1A1A] min-h-screen">
 
       {/* 1. HERO SECTION */}
-      <section className="pt-32 pb-20 px-6 md:px-20">
+      <section className="pt-32 pb-4 md:pb-20 px-6 md:px-20">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-black/40 hover:text-[#FF6006] font-sans text-xs font-bold tracking-widest uppercase transition-colors mb-12 group"
@@ -98,7 +98,12 @@ export default function ServicesPage() {
               transition={{ delay: index * 0.1 }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group"
             >
-              <div className="lg:col-span-1 text-2xl font-sans font-light opacity-20 group-hover:text-[#FF6006] group-hover:opacity-100 transition-all">
+              <div className="lg:col-span-1 text-2xl font-sans font-light 
+            text-[#FF6006] opacity-100 
+            lg:text-white lg:opacity-20 
+            group-hover:text-[#FF6006] group-hover:opacity-100 
+              transition-all"
+              >
                 {service.id}
               </div>
 
@@ -132,43 +137,65 @@ export default function ServicesPage() {
           </h2>
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 md:gap-3">
+          {/* Ligne 1 : Défilement vers la GAUCHE */}
           <div className="flex overflow-hidden">
             <motion.div
               initial={{ x: 0 }}
               animate={{ x: "-50%" }}
               transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-              className="flex flex-nowrap gap-6 whitespace-nowrap"
+              className="flex flex-nowrap gap-3 whitespace-nowrap"
             >
               {[...REASONS, ...REASONS].map((reason, i) => (
                 <div
-                  key={i}
-                  className="px-16 py-5 md:py-8 rounded-full bg-gradient-to-t from-[#F7F7F7] via-[#F0F0F0] to-[#E8E8E8] flex items-center justify-center "
+                  key={`row1-${i}`}
+                  className="px-10 py-5 md:px-16 md:py-8 rounded-full bg-gradient-to-t from-[#F7F7F7] via-[#F0F0F0] to-[#E8E8E8] flex items-center justify-center "
                 >
-                  <p className="text-sm md:text-3xl font-medium text-[#1A1A1A] tracking-tight">{reason}</p>
+                  <p className="text-md md:text-3xl font-medium text-[#1A1A1A] tracking-tight">{reason}</p>
                 </div>
               ))}
             </motion.div>
           </div>
 
+          {/* Ligne 2 : Défilement vers la DROITE */}
           <div className="flex overflow-hidden">
             <motion.div
               initial={{ x: "-50%" }}
               animate={{ x: 0 }}
               transition={{ duration: 140, repeat: Infinity, ease: "linear" }}
-              className="flex flex-nowrap gap-6 whitespace-nowrap"
+              className="flex flex-nowrap gap-3 whitespace-nowrap"
             >
               {[...REASONS, ...REASONS].map((reason, i) => (
                 <div
-                  key={i}
-                  className="px-16 py-5 md:py-8 rounded-full bg-gradient-to-t from-[#F7F7F7] via-[#F0F0F0] to-[#E8E8E8] flex items-center justify-center "
+                  key={`row2-${i}`}
+                  className="px-10 py-5 md:px-16 md:py-8 rounded-full bg-gradient-to-t from-[#F7F7F7] via-[#F0F0F0] to-[#E8E8E8] flex items-center justify-center "
                 >
-                  <p className="text-sm md:text-3xl font-medium text-[#1A1A1A] tracking-tight">{reason}</p>
+                  <p className="text-md md:text-3xl font-medium text-[#1A1A1A] tracking-tight">{reason}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Ligne 3 : Défilement vers la GAUCHE (Vitesse différente) */}
+          <div className="flex overflow-hidden">
+            <motion.div
+              initial={{ x: 0 }}
+              animate={{ x: "-50%" }}
+              transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
+              className="flex flex-nowrap gap-3 whitespace-nowrap"
+            >
+              {[...REASONS, ...REASONS].map((reason, i) => (
+                <div
+                  key={`row3-${i}`}
+                  className="px-10 py-5 md:px-16 md:py-8 rounded-full bg-gradient-to-t from-[#F7F7F7] via-[#F0F0F0] to-[#E8E8E8] flex items-center justify-center "
+                >
+                  <p className="text-md md:text-3xl font-medium text-[#1A1A1A] tracking-tight">{reason}</p>
                 </div>
               ))}
             </motion.div>
           </div>
         </div>
+
       </section>
 
     </main>
