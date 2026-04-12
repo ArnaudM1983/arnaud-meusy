@@ -37,7 +37,7 @@ export const BannerCTA = ({
       ref={containerRef} 
       className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#F9F9F9]"
     >
-      <h2 className="text-[10vw] md:text-[8vw] font-sans font-black tracking-tighter uppercase leading-[0.85] flex flex-wrap justify-center max-w-6xl">
+      <h2 className="text-[10vw] md:text-8xl font-sans font-medium tracking-tighter uppercase leading-[0.85] flex flex-wrap justify-center max-w-6xl">
         {words.map((word, i) => {
           // Calcul du timing pour chaque mot sur la timeline du scroll
           const start = i / words.length;

@@ -3,32 +3,11 @@
 import { motion } from 'framer-motion';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Button } from '@/components/Button'; 
+import { PROJECTS } from '@/data/projects'; 
 
-export const Work = () => {
-    const projects = [
-        {
-            title: "Eighty One Store",
-            slug: "eighty-one-store",
-            tech: ["Next.js", "Symfony", "Refine"],
-            impact: "Écosystème e-commerce haute performance",
-            image: "81.webp"
-        },
-        {
-            title: "Drophub CRM",
-            slug: "intelligence-crm",
-            tech: ["Next.js", "Supabase", "Gemini API"],
-            impact: "Assistant de copywriting IA et gestion de pipeline de prospection.",
-            image: "drophub.webp"
-        },
-        {
-            title: "Kickflip Studio",
-            slug: "kickflip-studio",
-            tech: ["Next.js", "Three.js", "GSAP", "Tailwind"],
-            impact: "Configurateur 3D immersif avec personnalisation en temps réel",
-            video: "kickflip.mp4", 
-            image: "kickflip-fallback.webp" 
-        }
-    ];
+export const Work = ({ limit }: { limit?: number }) => {
+    
+    const displayedProjects = limit ? PROJECTS.slice(0, limit) : PROJECTS;
 
     return (
         <section className="bg-[#F9F9F9] py-32 px-6 md:px-12 lg:px-24">
@@ -55,36 +34,38 @@ export const Work = () => {
                 </motion.p>
             </div>
 
-            {/* Project List */}
+            {/* Project List : On utilise ici displayedProjects au lieu de PROJECTS */}
             <div className="space-y-40">
-                {projects.map((p, i) => (
+                {displayedProjects.map((project, index) => (
                     <ProjectCard
-                        key={i}
-                        title={p.title}
-                        slug={p.slug}
-                        tech={p.tech}
-                        impact={p.impact}
-                        image={p.image}
-                        video={p.video}
-                        index={i}
+                        key={project.slug}
+                        title={project.title}
+                        slug={project.slug}
+                        tech={project.stack} 
+                        impact={project.impact}
+                        image={project.image}
+                        video={project.video}
+                        index={index}
                     />
                 ))}
             </div>
 
-            {/* CTA: Voir tous les projets */}
-            <motion.div 
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mt-40 flex justify-center"
-            >
-                <Button 
-                    label="Voir Plus" 
-                    href="/work"
-                    variant="dark" 
-                />
-            </motion.div>
+            {/* CTA: N'apparaît que si on a mis une limite */}
+            {limit && (
+                <motion.div 
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="mt-40 flex justify-center"
+                >
+                    <Button 
+                        label="Voir Plus" 
+                        href="/work"
+                        variant="dark" 
+                    />
+                </motion.div>
+            )}
         </section>
     );
 };
