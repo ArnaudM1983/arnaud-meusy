@@ -19,8 +19,8 @@ export const Navigation = () => {
 
     const navItems = [
         { label: "PROJETS", href: "/work" },
-        { label: "SERVICES", href: "/#services" }, 
-        { label: "À PROPOS", href: "/#about" }        
+        { label: "SERVICES", href: "/services" }, 
+        { label: "À PROPOS", href: "/a-propos" }        
     ];
 
     const scrollToTop = () => {

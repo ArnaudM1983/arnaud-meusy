@@ -1,5 +1,6 @@
 import { ProjectCard } from '@/components/ProjectCard';
 import * as motion from "framer-motion/client"; 
+import { PROJECTS } from '@/data/projects';
 
 export const metadata = {
   title: "Projets | Arnaud Meusy",
@@ -7,50 +8,12 @@ export const metadata = {
 };
 
 export default function WorkPage() {
-  const projects = [
-    {
-      title: "Eighty One Store",
-      slug: "eighty-one-store",
-      tech: ["Next.js", "Symfony", "Refine"],
-      impact: "Écosystème e-commerce haute performance.",
-      image: "81.webp"
-    },
-    {
-      title: "Drophub CRM",
-      slug: "intelligence-crm",
-      tech: ["Next.js", "Supabase", "Gemini API"],
-      impact: "Assistant de copywriting IA et gestion de pipeline de prospection.",
-      image: "drophub.webp"
-    },
-    {
-      title: "Kickflip Studio",
-      slug: "kickflip-studio",
-      tech: ["Next.js", "Three.js", "GSAP", "Tailwind"],
-      impact: "Configurateur 3D immersif avec personnalisation en temps réel.",
-      video: "kickflip.mp4",
-      image: "kickflip-fallback.webp"
-    },
-    {
-      title: "Gellery",
-      slug: "gellery",
-      tech: ["PHP", "WordPress", "WooCommerce"],
-      impact: "Boutique cosmétique axé sur une navigation fluide et éditoriale.",
-      image: "gellery.webp"
-    },
-    {
-      title: "Cheesenaan",
-      slug: "Cheesenaan",
-      tech: ["PHP", "WordPress"],
-      impact: "Refine digitale pour une agence de création de contenus documentaires.",
-      image: "cheesenann.webp"
-    }
-  ];
-
   return (
     <main className="bg-[#F9F9F9] min-h-screen">
       <section className="pt-40 pb-8 px-6 md:px-12 lg:px-24">
+        
         {/* Header Section */}
-        <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-[#1A1A1A] pb-12 overflow-hidden">
+        <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-black/30 pb-12 overflow-hidden">
           <motion.h1
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,12 +37,12 @@ export default function WorkPage() {
 
         {/* Project List */}
         <div className="space-y-40">
-          {projects.map((p, i) => (
+          {PROJECTS.map((p, i) => (
             <ProjectCard
               key={p.slug}
               title={p.title}
               slug={p.slug}
-              tech={p.tech}
+              tech={p.stack} 
               impact={p.impact}
               image={p.image}
               video={p.video}
@@ -87,6 +50,7 @@ export default function WorkPage() {
             />
           ))}
         </div>
+
       </section>
     </main>
   );

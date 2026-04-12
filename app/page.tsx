@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
 
       {/* Work Section */}
-      <Work />
+      <Work limit={3} />
 
       {/* Expertise Section */}
       <Expertise />
