@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
         client: "Eighty One",
         role: "Full-Stack Developer & UX Designer",
         year: "2026",
-        link: "https://github.com/ArnaudM1983/front-eighty-one",
+        link: "https://www.eightyonestore.com/",
         category: "E-Commerce",
         intro: "Conception d'une plateforme e-commerce sur mesure incluant API REST, interface client Next.js et dashboard administrateur haute performance.",
         overview: "Le projet Eighty-One visait à remplacer les solutions standards par une infrastructure propriétaire capable de gérer un catalogue complexe de variantes, une logistique multi-transporteurs et un flux de données fluide entre le client et l'administration.",
