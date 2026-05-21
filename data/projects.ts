@@ -150,7 +150,29 @@ export const PROJECTS: Project[] = [
             "/alto-2.webp",
             "/alto-3.webp"
         ]
-    }
+    },
+    {
+        slug: "lucie-coaching-recrutement",
+        title: "Lucie Coaching Recrutement",
+        client: "Lucie Jandot",
+        role: "Full-Stack Development & UX Design",
+        year: "2025",
+        link: "https://luciecoachingrecrutement.com/",
+        category: "Vitrine Professionnelle & E-commerce",
+        intro: "Création d'une plateforme web élégante et d'une boutique en ligne pour une coach certifiée et recruteuse à Lyon.",
+        overview: "L'objectif était de concevoir un site complet centralisant l'activité de coaching, les services de recrutement pour entreprises et particuliers, tout en intégrant une boutique en ligne (WooCommerce) pour la vente de prestations et de produits.",
+        challenge: "Traduire numériquement la bienveillance et le dynamisme de la cliente à travers un design épuré, tout en structurant une grande quantité de contenus (offres B2B, offres B2C, espace coaching) et de nombreux témoignages clients de manière fluide et lisible.",
+        solution: "Développement d'un site sur mesure sous WordPress et WooCommerce. Mise en place d'une architecture de l'information sectorisée avec des parcours utilisateurs clairs, une intégration soignée des avis clients pour renforcer la réassurance, et un système de panier optimisé pour la boutique.",
+        stack: ["WordPress", "WooCommerce", "PHP"],
+        impact: "Une présence digitale professionnelle et unifiée boostant la prise de rendez-vous et la vente de services.",
+        image: "coach-1.webp",
+        gallery: [
+            "/coach-1.webp",
+            "/coach-2.webp",
+            "/coach-3.webp",
+            "/coach-4.webp"
+        ]
+    },
 ];
 
 // Map pour accès direct via le slug
