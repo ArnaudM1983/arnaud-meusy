@@ -108,6 +108,28 @@ export const PROJECTS: Project[] = [
         ]
     },
     {
+        slug: "acctherm-controle-energetique",
+        title: "ACCTHERM",
+        client: "ACCTHERM",
+        role: "Full-Stack Developer & SEO Specialist",
+        year: "2026",
+        link: "https://acctherm.com",
+        category: "Vitrine B2B / B2C & SEO Local",
+        intro: "Refonte complète et optimisation SEO d'une plateforme vitrine pour un cabinet expert en contrôles énergétiques et conformité RE2020.",
+        overview: "ACCTHERM, société agréée QUALIBAT active depuis 15 ans en Auvergne-Rhône-Alpes, avait besoin de moderniser sa présence en ligne. L'objectif était de transformer un site existant en un véritable canal d'acquisition de leads pour ses prestations réglementaires (infiltrométrie, contrôles VMC Promevent, DPE Neuf).",
+        challenge: "Le défi consistait à structurer une grande quantité de contenus techniques et réglementaires de manière pédagogique tout en maximisant le maillage interne pour le SEO local (ciblage Lyon et départements limitrophes), le tout sans sacrifier la vitesse de chargement sur mobile pour les professionnels sur les chantiers.",
+        solution: "Développement d'une architecture ultra-rapide sous Astro, idéale pour le SEO grâce au rendu statique (SSG). Intégration rigoureuse des balises Open Graph pour optimiser le partage, et sectorisation des parcours utilisateurs (artisans, maîtres d'œuvre, particuliers) via un design système épuré sous Tailwind CSS. Hébergement et déploiement continu sur Vercel.",
+        stack: ["Astro", "TypeScript", "Tailwind CSS", "Open Graph", "Vercel"],
+        impact: "Une identité technique forte, un score de performance web maximal et une visibilité locale accrue pour capter les demandes de devis sous 24h.",
+        image: "acctherm.webp",
+        gallery: [
+            "/acctherm.webp",
+            "/acctherm-2.webp",
+            "/acctherm-3.webp",
+            "/acctherm-4.webp"
+        ]
+    },
+    {
         slug: "residence-barma",
         title: "BARMA COURCHEVEL",
         client: "Adjectif / Promoteur Immobilier",
